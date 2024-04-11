@@ -110,6 +110,7 @@ private Producto auxiliar;
         });
 
         jbBuscar.setBackground(new java.awt.Color(0, 255, 255));
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tp6com1/imagenes/Lupa.png"))); // NOI18N
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
