@@ -42,6 +42,7 @@ private static TreeSet<Producto> productos=new TreeSet<>();
         busquedaPorPrecio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         escritorio.setPreferredSize(new java.awt.Dimension(500, 458));
