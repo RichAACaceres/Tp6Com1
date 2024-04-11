@@ -12,10 +12,12 @@ import tp6com1.entidades.Producto;
  * @author esteb
  */
 public class Menu extends javax.swing.JFrame {
-private TreeSet<Producto> productos=new TreeSet<>();
-    /**
-     * Creates new form Menu
-     */
+private static TreeSet<Producto> productos=new TreeSet<>();
+
+    public static TreeSet<Producto>getProductos() {
+        return productos;
+    }
+    
     public Menu() {
         initComponents();
     }
@@ -34,9 +36,9 @@ private TreeSet<Producto> productos=new TreeSet<>();
         jMenu1 = new javax.swing.JMenu();
         jmiProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        busquedaPorRubro = new javax.swing.JMenuItem();
+        busquedaPorNombre = new javax.swing.JMenuItem();
+        busquedaPorPrecio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,19 +67,29 @@ private TreeSet<Producto> productos=new TreeSet<>();
 
         jMenu2.setText("consultas");
 
-        jMenuItem3.setText("Por rubro");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem2.setText("Por nombre");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        busquedaPorRubro.setText("Por rubro");
+        busquedaPorRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                busquedaPorRubroActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(busquedaPorRubro);
 
-        jMenuItem4.setText("Por precio");
-        jMenu2.add(jMenuItem4);
+        busquedaPorNombre.setText("Por nombre");
+        busquedaPorNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaPorNombreActionPerformed(evt);
+            }
+        });
+        jMenu2.add(busquedaPorNombre);
+
+        busquedaPorPrecio.setText("Por precio");
+        busquedaPorPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaPorPrecioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(busquedaPorPrecio);
 
         jMenuBar1.add(jMenu2);
 
@@ -108,7 +120,7 @@ private TreeSet<Producto> productos=new TreeSet<>();
         escritorio.moveToFront(gp);
     }//GEN-LAST:event_jmiProductosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void busquedaPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaPorNombreActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
@@ -116,7 +128,25 @@ private TreeSet<Producto> productos=new TreeSet<>();
         bPn.setVisible(true);
         escritorio.add(bPn);
         escritorio.moveToFront(bPn);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_busquedaPorNombreActionPerformed
+
+    private void busquedaPorRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaPorRubroActionPerformed
+       escritorio.removeAll();
+       escritorio.repaint();
+       BusquedaPorRubro bpr=new BusquedaPorRubro();
+       escritorio.add(bpr);
+    bpr.setVisible(true);
+       escritorio.moveToFront(bpr);
+    }//GEN-LAST:event_busquedaPorRubroActionPerformed
+
+    private void busquedaPorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaPorPrecioActionPerformed
+          escritorio.removeAll();
+       escritorio.repaint();
+       BusquedaPorPrecio bpp=new BusquedaPorPrecio();
+       escritorio.add(bpp);
+    bpp.setVisible(true);
+       escritorio.moveToFront(bpp);
+    }//GEN-LAST:event_busquedaPorPrecioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,13 +184,13 @@ private TreeSet<Producto> productos=new TreeSet<>();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem busquedaPorNombre;
+    private javax.swing.JMenuItem busquedaPorPrecio;
+    private javax.swing.JMenuItem busquedaPorRubro;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jmiProductos;
     // End of variables declaration//GEN-END:variables
 }
