@@ -1,24 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tp6com1.vistas;
 
 import java.util.TreeSet;
 import javax.swing.table.DefaultTableModel;
 import tp6com1.entidades.Producto;
 
-/**
- *
- * @author Usuario
- */
+
 public class BusquedaPorNombre extends javax.swing.JInternalFrame {
         private DefaultTableModel modelo= new DefaultTableModel();
         private TreeSet<Producto> productos;
-    /**
-     * Creates new form BusquedaPorNombre
-     */
+   
     public BusquedaPorNombre(TreeSet<Producto> productos) {
         initComponents();
         armarCabecera();
@@ -49,8 +40,10 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProductos = new javax.swing.JTable();
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Listado Por Nombre");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Nombre del Producto:");
 
         jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -70,6 +63,7 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtProductos.setEnabled(false);
         jScrollPane1.setViewportView(jtProductos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,7 +78,7 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -102,25 +96,28 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyReleased
-        borrarFilas();
         
+        borrarFilas();
         String producto=jtNombre.getText();
         
         for(Producto p:productos){
             if(p.getDescripcion().toLowerCase().startsWith(producto.toLowerCase())){
+                
                 modelo.addRow(new Object[]{
                     p.getCodigo(),
                     p.getDescripcion(),
                     p.getPrecio(),
                     p.getStock()
+                        
                 });
+                
             }
         }
                 

@@ -63,6 +63,7 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtTabla.setEnabled(false);
         jScrollPane1.setViewportView(jtTabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,25 +103,23 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcComboItemStateChanged
-      borrarFilas();
-        Categoria rubro=(Categoria)jcCombo.getSelectedItem();
+   borrarFilas();
+       Categoria categoria=(Categoria) jcCombo.getSelectedItem();
+     for(Producto p:productos){
     
-     
-        for(Producto prod:productos){
-       
-       if(rubro.equals(prod.getCategoria())){
-          
+          if(categoria.getCodigo()==p.getCategoria().getCodigo()){
+         
        modelo.addRow(new Object[]{
-       prod.getCodigo(),
-           prod.getDescripcion(),
-           prod.getPrecio(),
-               prod.getStock()
+       p.getCodigo(),
+           p.getDescripcion(),
+           p.getPrecio(),
+               p.getStock()
               
        });
+  
+       }
+     }
       
-       
-       }
-       }
     }//GEN-LAST:event_jcComboItemStateChanged
 
 private void llenarCombo(){
