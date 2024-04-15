@@ -23,7 +23,7 @@ private Producto auxiliar;
     public GestionProducto(TreeSet<Producto> productos) {
         initComponents();
         this.productos=productos;
-        cargarProductos();
+        //cargarProductos();
         llenarCombo();
     }
 
@@ -325,18 +325,18 @@ private Producto auxiliar;
         jbEliminar.setEnabled(false);
     }
     private void cargarProductos(){
-    Producto arroz=new Producto(1,"Arroz",899.99,77,new Categoria(2,"Comestible"));
-     Producto manteca=new Producto(2,"Manteca",699.99,44,new Categoria(2,"Comestible"));
-      Producto limpiaPisos=new Producto(3,"Brilla pisos",59.99,100,new Categoria(1,"Limpieza"));
-       Producto paco=new Producto(4,"Perfume paco",999.99,42,new Categoria(3,"Perfumeria"));
-        Producto cepillo=new Producto(5,"Cepillo de dientes",599.99,32,new Categoria(1,"Limpieza"));
-         Producto chayanne=new Producto(6,"Perfume chayanne",1500.99,5,new Categoria(3,"Perfumeria"));
-         productos.add(arroz);
-          productos.add(manteca);
-           productos.add(limpiaPisos);
-            productos.add(paco);
-             productos.add(cepillo);
-              productos.add(chayanne);
+//    Producto arroz=new Producto(1,"Arroz",899.99,77,new Categoria(2,"Comestible"));
+//     Producto manteca=new Producto(2,"Manteca",699.99,44,new Categoria(2,"Comestible"));
+//      Producto limpiaPisos=new Producto(3,"Brilla pisos",59.99,100,new Categoria(1,"Limpieza"));
+//       Producto paco=new Producto(4,"Perfume paco",999.99,42,new Categoria(3,"Perfumeria"));
+//        Producto cepillo=new Producto(5,"Cepillo de dientes",599.99,32,new Categoria(1,"Limpieza"));
+//         Producto chayanne=new Producto(6,"Perfume chayanne",1500.99,5,new Categoria(3,"Perfumeria"));
+//         productos.add(arroz);
+//          productos.add(manteca);
+//           productos.add(limpiaPisos);
+//            productos.add(paco);
+//             productos.add(cepillo);
+//              productos.add(chayanne);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

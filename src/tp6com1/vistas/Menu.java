@@ -132,7 +132,7 @@ public static TreeSet<Producto> productos=new TreeSet<>();
     private void busquedaPorRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaPorRubroActionPerformed
        escritorio.removeAll();
        escritorio.repaint();
-       BusquedaPorRubro bpr=new BusquedaPorRubro();
+       BusquedaPorRubro bpr=new BusquedaPorRubro(productos);
        escritorio.add(bpr);
     bpr.setVisible(true);
        escritorio.moveToFront(bpr);
@@ -141,7 +141,7 @@ public static TreeSet<Producto> productos=new TreeSet<>();
     private void busquedaPorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaPorPrecioActionPerformed
           escritorio.removeAll();
        escritorio.repaint();
-       BusquedaPorPrecio bpp=new BusquedaPorPrecio();
+       BusquedaPorPrecio bpp=new BusquedaPorPrecio(productos);
        escritorio.add(bpp);
     bpp.setVisible(true);
        escritorio.moveToFront(bpp);

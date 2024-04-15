@@ -19,8 +19,9 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
 
    private DefaultTableModel modelo= new DefaultTableModel();
    private TreeSet<Producto> productos=Menu.getProductos();
-    public BusquedaPorRubro() {
+    public BusquedaPorRubro(TreeSet<Producto> productos) {
         initComponents();
+        this.productos=productos;
         llenarCombo();
         armarCabecera();
     }
@@ -39,6 +40,7 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
         jcCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTabla = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Listado de busqueda por rubro");
@@ -66,16 +68,17 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
         jtTabla.setEnabled(false);
         jScrollPane1.setViewportView(jtTabla);
 
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel2)
-                .addGap(52, 52, 52)
-                .addComponent(jcCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,6 +88,17 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)
+                        .addGap(52, 52, 52)
+                        .addComponent(jcCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +110,9 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
                     .addComponent(jcCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -110,10 +126,10 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
           if(categoria.getCodigo()==p.getCategoria().getCodigo()){
          
        modelo.addRow(new Object[]{
-       p.getCodigo(),
-           p.getDescripcion(),
-           p.getPrecio(),
-               p.getStock()
+            p.getCodigo(),
+            p.getDescripcion(),
+            p.getPrecio(),
+            p.getStock()
               
        });
   
@@ -122,13 +138,17 @@ public class BusquedaPorRubro extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_jcComboItemStateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 private void llenarCombo(){
-Categoria perfumeria=new Categoria(1,"Perfumeria");
-Categoria Limpieza=new Categoria(2,"Limpieza");
-Categoria comestible=new Categoria(3,"Comestible");
-jcCombo.addItem(Limpieza);
-jcCombo.addItem(perfumeria);
+Categoria limpieza=new Categoria(1,"Limpieza");
+Categoria comestible=new Categoria(2,"Comestible");
+Categoria perfumeria=new Categoria(3,"Perfumeria");
+jcCombo.addItem(limpieza);
 jcCombo.addItem(comestible);
+jcCombo.addItem(perfumeria);
 }
 private void armarCabecera(){
     modelo.addColumn("Código");
@@ -144,6 +164,7 @@ while(modelo.getRowCount()>0){
 }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
